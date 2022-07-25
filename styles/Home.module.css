@@ -1,0 +1,21 @@
+.container {
+  padding: 0 2rem;
+}
+.container h1 { border-bottom: 1px solid white;}
+.container p { 
+  padding: 5px; 
+  width: 30%;
+  font-style: italic;
+}
+.container .online { 
+  color: green; 
+  box-shadow: 1px 1px 5px green;
+  padding: 4px;
+  border-radius: 4px;
+}
+.container .offline { 
+  color: red;
+  box-shadow: 1px 1px 5px red;
+  padding: 4px;
+  border-radius: 4px;
+}
