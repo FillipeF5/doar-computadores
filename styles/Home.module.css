@@ -17,6 +17,9 @@
 
 
 .formBox {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
   padding: 30px;
   width: 60%;
   background-color: whitesmoke;
@@ -24,10 +27,7 @@
   box-shadow: 1px 1px 10px whitesmoke;
   border-radius: 10px;
 }
-.formBox form { 
-  display: flex; 
-  flex-direction: column;
-}
+
 .personal {
   border-bottom: 3px solid darkblue;
   padding: 15px 0;
@@ -64,10 +64,11 @@
 .formBox input::placeholder { font-style: italic; }
 
 .formBox button { 
-  margin: 15px auto; padding: 5px;
+  margin: 15px auto; 
+  padding: 5px;
   border: 1px solid rgba(128, 128, 128, 0.465); 
   border-radius: 5px;
-  width: 50%;
+  width: 80%;
   box-shadow: 1px 1px solid black;
   cursor: pointer;
 }
