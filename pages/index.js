@@ -8,8 +8,7 @@ export default function Home() {
 
   const [form, setForm] = useState(true)
   const [equipment, setEquipment] = useState(false)
-  const onSubmit = (data) => console.log(data);
-  
+  const [ data, setData ] = useState()
 
   return (
     <>
@@ -24,12 +23,12 @@ export default function Home() {
         {form && <Form
           setForm={setForm}
           setEquipment={setEquipment}
-          onSubmit={onSubmit}
+          data={data}
+          setData={setData}
         />}
         {equipment && <Equipment
           setForm={setForm}
           setEquipment={setEquipment}
-          onSubmit={onSubmit}
           data={data}
         />}
 

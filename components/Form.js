@@ -8,21 +8,21 @@ import Equipment from '../components/Equipment'
 export default function Form({
     setForm,
     setEquipment,
-    data
+    setData
 }) {
+
     const { register, watch, setValue, setFocus, handleSubmit } = useForm()
     const [loading, setLoading] = useState(true)
     const watchZip = watch("zip")
-    const onSubmit = (data) => console.log(data);
 
-
-    let watchCounterDevice = watch('deviceCount')
-    function onBlur() {
-        for (let i = 0; i < watchCounterDevice; i++) {
-            (<Equipment />)
-        }
+    const onSubmit = (data) => {
+        setForm(false);
+        setEquipment(true);
+        setData(data);
     }
 
+
+    //CONSUMINDO API DE CEP
     useEffect(() => {
         register('zip', {
             onBlur: () => {
@@ -38,8 +38,9 @@ export default function Form({
                     })
                     .catch(err => console.log(err.message))
             }
-        });
-    });
+        })
+    }, []);
+
 
 
     return (
@@ -62,7 +63,11 @@ export default function Form({
 
                 <div className={styles.location}>
 
-                    <label htmlFor="zip">{loading ? "" : <Spinner animation="border" size="sm" />}</label>
+                    <label htmlFor="zip">
+                        {loading ? ""
+                            : <Spinner animation="border" size="sm" />
+                        }
+                    </label>
                     <input type="text" id="zip" {...register("zip")} placeholder=" ZIP (Ex.: 01001000)" />
 
                     <input type="text" id="city" {...register("city")} placeholder="City (Ex.: Gotham City)" />
@@ -87,69 +92,17 @@ export default function Form({
                 <div className={styles.devices}>
                     <label htmlFor="deviceCount">Device count:</label>
                     <input type="number" id="deviceCount" {...register("deviceCount", {
-                        required: true,
-                        onBlur: onBlur()
+                        required: true
                     })} placeholder="Ex.: 2" />
                 </div>
 
-                <div className={styles.devicesDetails} id="devicesDetails" >
-                    <label>Type</label>
-                    <select {...register('devices.0.type')}>
-                        <option value="">selecione...</option>
-                        <option value="notebook">Notebook</option>
-                        <option value="desktop">Desktop</option>
-                        <option value="netbook">Netbook</option>
-                        <option value="screen">Monitor</option>
-                        <option value="printer">Impressora</option>
-                        <option value="scanner">Scanner</option>
-                    </select>
-
-                    <label>Condition</label>
-                    <select {...register('devices.0.condition')}>
-                        <option value="">selecione...</option>
-                        <option value="working">Tem todas as partes, liga e funciona normalmente</option>
-                        <option value="notWorking">Tem todas as partes, mas não liga mais</option>
-                        <option value="broken">Faltam peças, funciona só as vezes ou está quebrado</option>
-                    </select>
-
-
-                    <label>Type</label>
-                    <select {...register('devices.1.type')}>
-                        <option value="">selecione...</option>
-                        <option value="notebook">Notebook</option>
-                        <option value="desktop">Desktop</option>
-                        <option value="netbook">Netbook</option>
-                        <option value="screen">Monitor</option>
-                        <option value="printer">Impressora</option>
-                        <option value="scanner">Scanner</option>
-                    </select>
-
-                    <label>Condition</label>
-                    <select {...register('devices.1.condition')}>
-                        <option value="">selecione...</option>
-                        <option value="working">Tem todas as partes, liga e funciona normalmente</option>
-                        <option value="notWorking">Tem todas as partes, mas não liga mais</option>
-                        <option value="broken">Faltam peças, funciona só as vezes ou está quebrado</option>
-                    </select>
-
-                </div>
-
-
-                {/* <button
-                    onClick={() => {
-                        setForm(false)
-                        setEquipment(true)
-                    }}
-                >
-                    Next
-                </button> */}
 
                 <button
-                    type="submit"
                     onClick={handleSubmit(onSubmit)}
                 >
-                    Submit
+                    next
                 </button>
+
             </div>
         </>
     )

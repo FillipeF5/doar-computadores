@@ -21,7 +21,8 @@
   flex-direction: column;
   justify-content: center;
   padding: 30px;
-  width: 60%;
+  min-width: 40%;
+  min-height: 90vh;
   background-color: whitesmoke;
   margin: 50px auto;
   box-shadow: 1px 1px 10px whitesmoke;
@@ -49,8 +50,15 @@
   justify-content: space-around;
   flex-direction: column;
   border: 1px solid darkblue; 
+  margin: 10px;
   border-radius: 5px;
   padding: 15px;
+}
+.devicesDetails span {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color:blue
 }
 
 .formBox input, .boxEquipments select {
