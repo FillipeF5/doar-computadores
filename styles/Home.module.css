@@ -2,29 +2,35 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: #141414;
+  min-width: 100vw;
+  min-height: 100vh;
 }
+
 .header {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid whitesmoke;
 }
-.header h1 {  
-  text-align: center; 
+
+.header h1 {
+  text-align: center;
   color: whitesmoke;
   width: 90%;
 }
 
 
 .formBox {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 30px;
-  min-width: 40%;
-  min-height: 90vh;
+  padding: 0 20px;
+  min-width: 40vw;
+  max-width: 80vw;
+  min-height: 60vh;
+  max-height: 100vh;
   background-color: whitesmoke;
-  margin: 50px auto;
+  margin: 20px auto;
   box-shadow: 1px 1px 10px whitesmoke;
   border-radius: 10px;
 }
@@ -33,7 +39,8 @@
   border-bottom: 3px solid darkblue;
   padding: 15px 0;
 }
-.location { 
+
+.location {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -46,22 +53,24 @@
 }
 
 .devicesDetails {
-  display:flex;
+  display: flex;
   justify-content: space-around;
   flex-direction: column;
-  border: 1px solid darkblue; 
+  border: 1px solid darkblue;
   margin: 10px;
   border-radius: 5px;
   padding: 15px;
 }
+
 .devicesDetails span {
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
-  color:blue
+  color: blue
 }
 
-.formBox input, .boxEquipments select {
+.formBox input,
+.boxEquipments select {
   margin-bottom: 10px;
   width: 100%;
   border: 1px solid rgba(128, 128, 128, 0.465);
@@ -69,20 +78,40 @@
   border-radius: 5px;
 }
 
-.formBox input::placeholder { font-style: italic; }
-
-.formBox button { 
-  margin: 15px auto; 
-  padding: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.465); 
-  border-radius: 5px;
-  width: 80%;
-  box-shadow: 1px 1px solid black;
-  cursor: pointer;
+.formBox input::placeholder {
+  font-style: italic;
 }
+
+.formBox button {
+  margin: 15px auto;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(169, 169, 169, 0.578);
+  min-width: 40vw;
+  max-width: 80vw;
+  box-shadow: 1px 1px solid black;
+}
+
 .formBox button:hover {
   box-shadow: 1px 1px 8px darkblue;
-  background-color: darkblue; 
+  background-color: darkblue;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+
+.btn_submit {
+  margin: 15px auto;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px solid black;
+  cursor: pointer;
+  width: 40%;
+}
+
+.btn_submit:hover {
+  box-shadow: 1px 1px 8px darkblue;
+  background-color: darkblue;
   color: whitesmoke;
   font-weight: bold;
 }
